@@ -1,52 +1,49 @@
+
 <!DOCTYPE html>
-
 <html lang="pt">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <title>Fórmula Resolvente</title>
-
+    <meta charset="UTF-8">
+    <title>Fórmula Resolvente</title>
 </head>
-
 <body>
 
+<script>
+    let repetir;
 
-  <script>
+    do {
+        let a = Number(prompt("Valor de a:"));
 
-    let a = Number(prompt("Valor de a:"));
+        // 1. Validar se a é diferente de zero
+        if (a === 0) {
+            alert("Erro! O valor de a não pode ser zero.");
+        } else {
+            let b = Number(prompt("Valor de b:"));
+            let c = Number(prompt("Valor de c:"));
 
-    let b = Number(prompt("Valor de b:"));
+            let delta = b * b - 4 * a * c;
 
-    let c = Number(prompt("Valor de c:"));
+            if (delta >= 0) {
+                let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                let x2 = (-b - Math.sqrt(delta)) / (2 * a);
 
+                // 2. Arredondar para duas casas decimais
+                x1 = x1.toFixed(2);
+                x2 = x2.toFixed(2);
 
-    let delta = b * b - 4 * a * c;
+                alert("x1 = " + x1 + " e x2 = " + x2);
+            } else {
+                alert("Não existem raízes reais.");
+            }
+        }
 
+        // 3. Perguntar se pretende repetir
+        repetir = prompt("Pretende executar novamente? (sim/não)");
 
-    if (delta > 0) {
+    } while (repetir.toLowerCase() === "sim");
 
-      let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+    alert("Programa terminado!");
 
-      let x2 = (-b - Math.sqrt(delta)) / (2 * a);
-
-      alert("x1 = " + x1 + " e x2 = " + x2);
-
-    } else if (delta === 0) {
-
-      let x = -b / (2 * a);
-
-      alert("x = " + x);
-
-    } else {
-
-      alert("Não existem raízes reais.");
-
-    }
-
-  </script>
+</script>
 
 </body>
-
 </html>
